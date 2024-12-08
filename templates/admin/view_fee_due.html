@@ -1,0 +1,20 @@
+{% extends 'admin/index.html' %}
+{% block body %}
+    <h1 style="color:white">FEES</h1>
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-dark" width="200" border="1">
+    <tr>
+      <td>#</td>
+      <td>Username</td>
+      <td>Contact</td>
+    </tr>
+       {% for i in data %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.username }}</td>
+      <td>{{ i.email }}<br>{{ i.phone }}</td>
+    </tr>
+          {% endfor %}
+  </table>
+</form>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'admin/index.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/batch_allocation_to_trainer_post/{{ id }}">
+  {% csrf_token %}<table width="200" border="1" class="table table-dark">
+    <tr>
+      <td>Batch Name</td>
+      <td>
+        <select class="form-control" name="select" id="select" required>
+            {% for i in data %}
+            <option value="{{ i.id }}">{{ i.batchname }}</option>
+            {% endfor %}
+      </select></td>
+    </tr>
+    <tr>
+      <td colspan="2"><input type="submit" name="button" class="btn btn-outline-danger" id="button" value="allocate" /></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

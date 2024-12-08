@@ -1,0 +1,48 @@
+{% extends 'admin/index.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/update_trainer_post/{{ id }}">
+  {% csrf_token %}<table class="table table-dark" width="200" border="1">
+    <tr>
+      <td>Name</td>
+      <td>
+      <input type="text" required class="form-control" name="textfield" value="{{ data.trainername }}"id="textfield" /></td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>
+      <input type="text" required class="form-control" name="textfield2" value="{{ data.traineremail }}"id="textfield2" /></td>
+    </tr>
+    <tr>
+      <td>Phone</td>
+      <td>
+      <input type="text" required class="form-control" name="textfield3" value="{{ data.phone }}" id="textfield3" /></td>
+    </tr>
+    <tr>
+      <td>Place</td>
+      <td>
+      <input type="text" required class="form-control" name="textfield4" value="{{ data.place }}"id="textfield4" /></td>
+    </tr>
+    <tr>
+      <td>Post</td>
+      <td>
+      <input type="text" required class="form-control" name="textfield5" value="{{ data.post }}"id="textfield5" /></td>
+    </tr>
+    <tr>
+      <td>Pin</td>
+      <td>
+      <input type="text" required class="form-control" name="textfield6" value="{{ data.pin }}"id="textfield6" /></td>
+    </tr>
+{#    <tr>#}
+{#      <td>Type</td>#}
+{#      <td><label for="select"></label>#}
+{#        <select name="select" id="select">#}
+{#          <option value="expert">Expert</option>#}
+{#          <option value="Trainer">Trainer</option>#}
+{#      </select></td>#}
+{#    </tr>#}
+    <tr>
+      <td colspan="2"><input type="submit" name="button" class="btn btn-outline-danger" id="button" value="Submit" /></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

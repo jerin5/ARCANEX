@@ -1,0 +1,36 @@
+{% extends 'admin/index.html' %}
+{% block body %}
+     <html>
+    <head>
+        <style>
+            .description-cell {
+    word-wrap: break-word; /* Allows breaking of long words */
+    white-space: pre-wrap; /* Keeps the whitespace formatting and breaks lines as needed */
+    max-width: 200px; /* Adjust the width according to your needs */
+}
+        </style>
+    </head>
+    <h1 style="color:white">REGISTERED USERS</h1>
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-dark"" width="200" border="1">
+    <tr>
+      <td>#</td>
+      <td>Username</td>
+      <td>Contact</td>
+      <td>Address</td>
+      <td>&nbsp;</td>
+    </tr>
+       {% for i in data %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.username }}</td>
+      <td>{{ i.email }}<br>{{ i.phone }}</td>
+      <td class="description-cell">&nbsp;{{ i.place }}<br>{{ i.post }}<br>{{ i.pin }}</td>
+      <td><p><a style="width: 70%" href="/allocate_user_to_batch/{{ i.id }}#abc" class="btn btn-outline-danger">Allocate</a></p>
+{#          <br>#}
+{#      <p><a style="width: 70%" class="btn btn-outline-danger" href="/send_alert/{{ i.id }}#abc">Send Alert</a></p></td>#}
+    </tr>
+          {% endfor %}
+  </table>
+</form>
+{% endblock %}

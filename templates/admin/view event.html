@@ -1,0 +1,36 @@
+{% extends 'admin/index.html' %}
+{% block body %}
+
+    <html>
+    <head>
+        <style>
+            .description-cell {
+    word-wrap: break-word; /* Allows breaking of long words */
+    white-space: pre-wrap; /* Keeps the whitespace formatting and breaks lines as needed */
+    max-width: 200px; /* Adjust the width according to your needs */
+}
+        </style>
+    </head>
+    <h1 style="color:white">EVENTS</h1>
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-dark" width="200" border="1">
+    <tr>
+      <td>#</td>
+      <td>Event Name</td>
+      <td>Date</td>
+      <td>Description</td>
+      <td>&nbsp;</td>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.eventname }}</td>
+      <td>&nbsp;{{ i.date }}</td>
+      <td  class="description-cell">&nbsp;{{ i.description }}</td>
+      <td><a style="width: 70%" href="/delete_event/{{ i.id }}" class="btn btn-outline-danger" onclick="return confirm('Are you sure?')">delete</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+    </html>
+{% endblock %}

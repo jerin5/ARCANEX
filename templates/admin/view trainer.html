@@ -1,0 +1,36 @@
+{% extends 'admin/index.html' %}
+{% block body %}
+    <h1 style="color:white">TRAINERS</h1>
+<form id="form1" name="form1" method="post" action="/view_expert_trainer_post">
+  {% csrf_token %}<table class="table table-dark" width="200" border="1">
+{#    <tr>#}
+{#      <td colspan="2">Type</td>#}
+{#      <td colspan="2"><label for="select"></label>#}
+{#        <select name="select" id="select">#}
+{#          <option value="Expert">Expert</option>#}
+{#          <option value="Trainer">Trainer</option>#}
+{#      </select></td>#}
+{#      <td colspan="2"><input type="submit" name="button" id="button" value="Search" /></td>#}
+{#    </tr>#}
+    <tr>
+      <td>#</td>
+      <td>Name</td>
+      <td>Address</td>
+      <td>Email</td>
+      <td>Phone</td>
+      <td>&nbsp;</td>
+    </tr>
+    {% for i in data %}
+    <tr>
+      <td>{{ forloop.counter }}&nbsp;</td>
+      <td>{{ i.trainername }}</td>
+      <td>{{ i.place }}<br>{{ i.post }}<br>{{ i.pin }}</td>
+      <td>{{ i.traineremail }}</td>
+      <td>{{ i.phone}}</td>
+      <td><p><a style="width: 70%" href="/update_trainer/{{ i.id }}#abc" class="btn btn-outline-danger">edit</a></p><br>
+      <p><a style="width: 70%" href="/delete_trainer/{{ i.id }}#abc" class="btn btn-outline-danger" onclick="return confirm('Are you sure?')">delete</a></p></td><td><a href="/batch_allocation_to_trainer/{{ i.id }}#abc" class="btn btn-outline-danger">allocate</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+{% endblock %}
