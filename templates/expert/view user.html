@@ -1,0 +1,24 @@
+{% extends 'expert/index.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-dark" width="200" border="1">
+    <tr>
+      <td>#</td>
+      <td>name</td>
+      <td>contact info</td>
+      <td>address</td>
+      <td>&nbsp;</td>
+    </tr>
+       {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ forloop.counter }} </td>
+      <td>{{ i.username }}</td>
+      <td>&nbsp;{{ i.email }}<br>{{ i.phone }} </td>
+      <td>&nbsp;{{ i.place }}<br>{{ i.post }}<br>{{ i.pin }}</td>
+      <td><p><a href="/expert_chatt/{{ i.id }}#abc" class="btn btn-outline-danger">chat</a></p>
+      </td>
+    </tr>
+       {% endfor %}
+  </table>
+</form>
+{% endblock %}
