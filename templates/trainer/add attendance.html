@@ -1,0 +1,31 @@
+{% extends 'trainer/index.html' %}
+{% block body %}
+
+<form id="form1" name="form1" method="post" action="/add_attendance_trainer_post/{{ id }}">
+{% csrf_token %}
+  <table class="table table-dark" width="200" border="1">
+    <tr>
+      <td>date</td>
+      <td>
+      <input type="date" required class="form-control" name="textfield" id="textfield" /></td>
+    </tr>
+    <tr>
+      <td>attendance</td>
+      <td><p>
+        <label>
+          <input type="radio" required class="form-control" name="RadioGroup1" value="Present" id="RadioGroup1_0" />
+          Present</label>
+        <br />
+        <label>
+          <input type="radio" required class="form-control" name="RadioGroup1" value="Absent" id="RadioGroup1_1" />
+          Absent</label>
+        <br />
+      </p></td>
+      
+    </tr>
+    <tr>
+      <td colspan="2"><input type="submit" name="button" class="btn btn-outline-danger" id="button" value="Add" /></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

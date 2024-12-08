@@ -1,0 +1,28 @@
+{% extends 'trainer/index.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-dark" width="200" border="1">
+    <tr>
+      <td>#</td>
+      <td>name</td>
+      <td>contact info</td>
+      <td>address</td>
+      <td>&nbsp;</td>
+    </tr>
+       {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ forloop.counter }} </td>
+      <td>{{ i.USER.username }}</td>
+      <td>&nbsp;{{ i.USER.email }}<br>{{ i.USER.phone }} </td>
+      <td>&nbsp;{{ i.USER.place }}<br>{{ i.USER.post }}<br>{{ i.USER.pin }}</td>
+      <td>
+          <p><a href="/chatt/{{ i.USER.id }}#abc" class="btn btn-outline-danger">chat</a>
+          <a href="/add_attendance_trainer/{{ i.USER.id }}#abc" class="btn btn-outline-danger">Attendance</a><br><br>
+          <a href="/update_health_details/{{ i.USER.id }}#abc" class="btn btn-outline-danger">Update Health Detail</a>
+          </p>
+      </td>
+    </tr>
+       {% endfor %}
+  </table>
+</form>
+{% endblock %}
